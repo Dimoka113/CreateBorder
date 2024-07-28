@@ -1,0 +1,70 @@
+﻿advancement: false
+#on/off expansion of the barrier for achievement
+#вкл/выкл расширения барьера для ачивки
+
+BorderSpeed: 1
+BorderCoff: 1.0
+BlockBolder_common: 2
+BlockBolder_rare: 8
+BlockBolder_epic: 16
+
+World_name: "world"
+World_Border_Overworld: 1.0
+World_Border_Nether: 0.125
+World_Border_End: 3.0
+
+limit:
+  actionbarmessage: "§4Достигнут лимит размера барьера...§r"
+  blocks: 9000
+
+
+
+#  Colors:
+  #  black: §0
+  #  dark_green: §2
+  #  dark_red: §4
+  #  gold: §6
+  #  dark_gray: §8
+  #  green: §a
+  #  red: §c
+  #  yellow: §e
+  #  dark_blue: §1
+  #  dark_aqua: §3
+  #  dark_purple: §5
+  #   gray: §7
+  #  blue: §9
+  #  aqua: §b
+  #  purple: §d
+  #  white: §f
+  #  clear: §r
+
+
+ActionBar:
+
+  enable: true
+  Text: "test message {player} {size} {plus}"
+
+  ColorPlayerOverworld: ""
+  ColorPlayerNether: ""
+  ColorPlayerTheEnd: ""
+
+
+  ColorOverworld: ""
+  ColorNether: ""
+  ColorTheEnd: ""
+
+
+  ColorAddOverworld: ""
+  ColorAddNether: ""
+  ColorAddTheEnd: ""
+
+  player: "{colorPlayer}{player}§r"
+  size: "{colorWorld}{size}§r"
+  plus: "{colorAddWorld}{plus}§r"
+
+
+
+
+
+
+
