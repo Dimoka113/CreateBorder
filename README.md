@@ -1,4 +1,4 @@
-##This plugin improves the mechanics of the barrier in Minecraft, giving it the opportunity to expand from the achievements players receive##
+**This plugin improves the mechanics of the barrier in Minecraft, giving it the opportunity to expand from the achievements players receive**
 
 **Tested for**:
 - Java 17+ ([Get Adoptium](https://adoptium.net/))
