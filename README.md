@@ -1,11 +1,10 @@
-This plugin improves the mechanics of the barrier in Minecraft, giving it the opportunity to expand from the achievements players receive
-Этот плагин улучшает механику барьеров в Minecraft, давая возможность расширяться за счет достижений, которые зарабатывают игроки.
+##This plugin improves the mechanics of the barrier in Minecraft, giving it the opportunity to expand from the achievements players receive##
 
-##Tested for:
+**Tested for**:
 - Java 17+ ([Get Adoptium](https://adoptium.net/))
 - Minecraft 1.20.* - 1.21
 
-##Install:
+**Install**:
 - Download ([Releases](https://github.com/Dimoka113/CreateBorder/releases/latest))
 - Download Server ([Paper](https://papermc.io/)) (Or any fork such as ([Purpur](https://purpurmc.org/downloads))
 - Move the plugin to the "<code>plugins</code>" folder of your server.
