@@ -9,5 +9,5 @@
 - Install Your server ([Paper](https://papermc.io/)) (Or any fork such as ([Purpur](https://purpurmc.org/downloads))
 - Move the plugin to the "<code>plugins</code>" folder of your server.
 - Restart your server.
-- Edit config.yml in dir <code>plugins/CreateBorder</code> to your taste.
+- Edit config.yml in <code>plugins/CreateBorder</code> to your taste.
 - Enjoy!
