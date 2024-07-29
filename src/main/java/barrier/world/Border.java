@@ -15,6 +15,8 @@ import java.util.Objects;
 import java.util.logging.Logger;
 import org.bukkit.entity.Player;
 
+import static barrier.world.CreateBorder.Diametr_Size_Border;
+import static barrier.world.CreateBorder.Radius_Size_Border;
 public class Border implements Listener {
     double block;
 
@@ -37,14 +39,23 @@ public class Border implements Listener {
 
     @EventHandler
     public void onAdvancementDoneEvent(PlayerAdvancementDoneEvent e) {
-        Player pla = e.getPlayer();
-        String plname = pla.getName();
-
-        long time = config.getLong("BorderSpeed");
-        double coffees = config.getDouble("BorderCoff");
         boolean advancementss = config.getBoolean("advancement");
         Advancement adv = e.getAdvancement();
+
         if (advancementss) {
+            Double brd_size = 0.0;
+            Player pla = e.getPlayer();
+            String plname = pla.getName();
+            List<World> allWorld = pla.getServer().getWorlds();
+            long time = config.getLong("BorderSpeed");
+            double coffees = config.getDouble("BorderCoff");
+
+            for (World w : allWorld) {
+                WorldBorder border = w.getWorldBorder();
+                brd_size = Radius_Size_Border(border.getSize());
+                break;
+            }
+
 
 
             try {
@@ -57,32 +68,30 @@ public class Border implements Listener {
                 }
                 String name = config.getString("World_name");
 
-
-                if (CreateBorder.brd_size >= config.getDouble("limit.blocks")) {
-                    pla.sendActionBar(config.getString("limit.actionbarmessage"));
-                    return;
+                if (config.getBoolean("limit.enable")) {
+                    if (brd_size >= config.getDouble("limit.blocks")) {
+                        pla.sendActionBar(config.getString("limit.actionbarmessage"));
+                        return;
+                    }
                 }
-                CreateBorder.brd_size = CreateBorder.brd_size + (block * coffees);
-
                 for (World w : allWorld) {
                     double w_add;
 
                     if (w.getName().equals(name)) {
                         w_add = config.getDouble("World_Border_Overworld");
 
-
                     } else if (w.getName().equals(name + "_nether")) {
                         w_add = config.getDouble("World_Border_Nether");
                     } else if (w.getName().equals(name + "_the_end")) {
                         w_add = config.getDouble("World_Border_End");
                     } else {
-                        w_add = 1;
-                        logger.info("Такого мира не существует!");
+                        w_add = config.getDouble("Wolrd_Border_Other");
                     }
 
 
                     WorldBorder border = w.getWorldBorder();
-                    border.setSize(((CreateBorder.brd_size * 2.0) * w_add) + 1.0, time);
+                    brd_size = border.getSize();
+                    border.setSize(brd_size + (w_add * coffees * block), time);
                 }
 
 
@@ -94,7 +103,7 @@ public class Border implements Listener {
                     double ww_add;
 
                     World w = pl.getWorld();
-
+                    WorldBorder border = w.getWorldBorder();
                     if (w.getName().equals(name)) {
                         plnamecr = config.getString("ActionBar.ColorPlayerOverworld");
                         colorsize = config.getString("ActionBar.ColorOverworld");
@@ -111,11 +120,10 @@ public class Border implements Listener {
                         colorplus = config.getString("ActionBar.ColorAddTheEnd");
                         ww_add = config.getDouble("World_Border_End");
                     } else {
-                        plnamecr = "";
-                        colorsize = "";
-                        colorplus = "";
-                        ww_add = 1;
-                        logger.info("Название мира неправильно настроено!");
+                        plnamecr = config.getString("ActionBar.ColorPlayerOther");
+                        colorsize = config.getString("ActionBar.ColorOther");
+                        colorplus = config.getString("ActionBar.ColorAddOther");
+                        ww_add = config.getDouble("Wolrd_Border_Other");
                     }
 
                     if (config.getBoolean("ActionBar.enable")) {
@@ -127,12 +135,12 @@ public class Border implements Listener {
 
                                 .replace("{size}", config.getString("ActionBar.size")
                                         .replace("{colorWorld}", colorsize))
-                                .replace("{size}", Double.toString(((ww_add * coffees) * CreateBorder.brd_size))
+                                .replace("{size}", Double.toString(Radius_Size_Border(border.getSize()))
                                 )
 
                                 .replace("{plus}", config.getString("ActionBar.plus")
                                         .replace("{colorAddWorld}", colorplus)
-                                        .replace("{plus}", Double.toString(((ww_add * coffees) * block))
+                                        .replace("{plus}", Double.toString(ww_add * coffees * block)
                                         ))));
                     }
 

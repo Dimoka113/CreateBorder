@@ -1,25 +1,106 @@
-﻿advancement: false
-#on/off expansion of the barrier for achievement
-#вкл/выкл расширения барьера для ачивки
+﻿# on/off expansion of the barrier for achievements
+# вкл/выкл расширения барьера за ачивки
+advancement: true
 
+# The speed at which the barrier will expand for completing one achievement
+# Cкорость с которой барьер будет расширятся за выполнение одной ачивки
 BorderSpeed: 1
-BorderCoff: 1.0
-BlockBolder_common: 2
-BlockBolder_rare: 8
-BlockBolder_epic: 16
 
+# Barrier increase size factor (default 2 (1 block))
+# Коэффициент размера увеличения барьера (поумолчанию 2 (1 блок))
+BorderCoff: 2.0
+
+# Size by how much the barrier will increase for completing one “achievement”
+# Размер на сколько увеличится барьер за выполжение одного "достижения"
+BlockBolder_common: 1.0
+
+# The size of how much the barrier to completing one “goal” increases
+# Размер на сколько увеличится барьер за выполжение одного "цели"
+BlockBolder_rare: 4.0
+
+# Size by how much the barrier will increase for completing one “trial”
+# Размер на сколько увеличится барьер за выполжение одного "испытание"
+BlockBolder_epic: 16.0
+
+# Names of your world with a barrier (needed for multiworld)
+# Названия вашего мира с барьером (нужен для мультиворолда)
 World_name: "world"
+
+# Size by how much the barrier will increase in overworld
+# Размер на сколько увеличится барьер в обычном мире
 World_Border_Overworld: 1.0
+
+# Size by how much the barrier will increase in the_nether
+# Размер на сколько увеличится барьер в аду
 World_Border_Nether: 0.125
+
+# Size by how much the barrier will increase in the_end
+# Размер на сколько увеличится барьер в энде
 World_Border_End: 3.0
 
+# Size by how much the barrier will increase in other worlds (only if there is a multi-world)
+# Размер на сколько увеличится барьер в остальных мирах (только если есть мульти ворлд)
+Wolrd_Border_Other: 1.0
+
+
 limit:
+  # Enable limit on barrier expansion
+  # Включить ограничение на расширение барьера
+  enable: true
+  # Number of blocks until the barrier will expand (radius). Upon reaching this distance it will display "actionbarmessage"
+  # Кол-во блок до какого момента барьер будет расширятся (радиус). По достижению этого растояния будет выведет "actionbarmessage"
+  blocks: 10000
+
+  # Messages that the player will see if the maximum barrier size has been reached
+  # Сообщения которое увидит игрок, если максимальный размер барьера достигнут
   actionbarmessage: "§4Достигнут лимит размера барьера...§r"
-  blocks: 9000
 
 
+ActionBar:
 
-#  Colors:
+  # Enable displays above players' inventory if someone has completed an achievement and increased the barrier
+  # Включить отображения над инвентарём игроков если кто-то выполнил ачивку и увеличил барьер
+  enable: true
+
+  # Message that will be displayed to players There is a {player} {size} {plus} to display
+  # Сообщение которое будет выводится игрокам Есть {player} {size} {plus}, для отображения
+  Text: 'Мир увеличен {player}: +{plus} (Размер мира {size})'
+
+  # Настройка цвета для каждого мира (ник игрока)
+  ColorPlayerOverworld: §b
+  ColorPlayerNether: §b
+  ColorPlayerTheEnd: §b
+  ColorPlayerOther: ""
+
+
+  # Настройка цвета для каждого мира (размер барьера)
+  ColorOverworld: §2
+  ColorNether: §4
+  ColorTheEnd: §5
+  ColorOther: ""
+
+  # Настройка цвета для каждого мира (на сколько увеличен барьер)
+  ColorAddOverworld: §a
+  ColorAddNether: §с
+  ColorAddTheEnd: §d
+  ColorAddOther: ""
+
+
+  # Player display template
+  # Шаблон отображения игрока
+  player: "{colorPlayer}{player}§r"
+  # World size display template
+  # Шаблон отображения размера мира
+  size: "{colorWorld}{size}§r"
+  # Template for displaying the number of blocks to increase
+  # Шаблон отображения кол-во блоков для увеличения
+  plus: "{colorAddWorld}{plus}§r"
+
+
+  Colors: §
+  # currently supported colors:
+  # цвета которые поддерживаются в данный момент:
+  #Colors:
   #  black: §0
   #  dark_green: §2
   #  dark_red: §4
@@ -37,34 +118,5 @@ limit:
   #  purple: §d
   #  white: §f
   #  clear: §r
-
-
-ActionBar:
-
-  enable: true
-  Text: "test message {player} {size} {plus}"
-
-  ColorPlayerOverworld: ""
-  ColorPlayerNether: ""
-  ColorPlayerTheEnd: ""
-
-
-  ColorOverworld: ""
-  ColorNether: ""
-  ColorTheEnd: ""
-
-
-  ColorAddOverworld: ""
-  ColorAddNether: ""
-  ColorAddTheEnd: ""
-
-  player: "{colorPlayer}{player}§r"
-  size: "{colorWorld}{size}§r"
-  plus: "{colorAddWorld}{plus}§r"
-
-
-
-
-
-
+# https://www.reddit.com/media?url=https%3A%2F%2Fpreview.redd.it%2Fyldfhnb4xp411.png%3Fauto%3Dwebp%26s%3D747bcfe3d9db9aba2b0bfecacf8299619f8eca38
 

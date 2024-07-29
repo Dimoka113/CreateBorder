@@ -32,6 +32,11 @@ class ColorG {
     public static TextComponent yellow (String text) {
         return Component.text(text).color(TextColor.color(255 , 255, 0));
     }
+
+    public static TextComponent orange (String text) {
+        return Component.text(text).color(TextColor.color(255, 165, 0));
+    }
+
     public static TextComponent red (String text) {
         return Component.text(text).color(TextColor.color(200 , 0, 0));
     }
