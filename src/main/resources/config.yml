@@ -65,7 +65,7 @@ ActionBar:
   # Message that will be displayed to players There is a {player} {size} {plus} to display
   # Сообщение которое будет выводится игрокам Есть {player} {size} {plus}, для отображения
   Text: 'Мир увеличен {player}: +{plus} (Размер мира {size})'
-
+  shortening: 2
   # Настройка цвета для каждого мира (ник игрока)
   ColorPlayerOverworld: §b
   ColorPlayerNether: §b

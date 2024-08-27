@@ -43,7 +43,10 @@ public class Config {
                 "# вкл/выкл расширения барьера за ачивки"
         ));
 
+        cnf.addDefault("shortening", 2);
+
         cnf.addDefault("BorderSpeed", 1);
+
         cnf.setComments("BorderSpeed", Arrays.asList(
                 "# The speed at which the barrier will expand for completing one achievement",
                 "# Cкорость с которой барьер будет расширяться за выполнение одной ачивки"

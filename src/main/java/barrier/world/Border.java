@@ -14,8 +14,10 @@ import java.util.List;
 import java.util.Objects;
 import java.util.logging.Logger;
 import org.bukkit.entity.Player;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 
-import static barrier.world.CreateBorder.Diametr_Size_Border;
+
 import static barrier.world.CreateBorder.Radius_Size_Border;
 public class Border implements Listener {
     double block;
@@ -43,7 +45,7 @@ public class Border implements Listener {
         Advancement adv = e.getAdvancement();
 
         if (advancementss) {
-            Double brd_size = 0.0;
+            double brd_size = 0.0;
             Player pla = e.getPlayer();
             String plname = pla.getName();
             List<World> allWorld = pla.getServer().getWorlds();
@@ -91,7 +93,9 @@ public class Border implements Listener {
 
                     WorldBorder border = w.getWorldBorder();
                     brd_size = border.getSize();
-                    border.setSize(brd_size + (w_add * coffees * block), time);
+                    double newSize = brd_size + (w_add * coffees * block);
+                    newSize = round(newSize, config.getInt("shortening"));
+                    border.setSize(newSize, time);
                 }
 
 
@@ -153,4 +157,13 @@ public class Border implements Listener {
 
         }
     }
+    // Метод для округления числа до указанного количества знаков после запятой
+    private double round(double value, int places) {
+        if (places < 0) throw new IllegalArgumentException();
+
+        BigDecimal bd = BigDecimal.valueOf(value);
+        bd = bd.setScale(places, RoundingMode.HALF_UP);
+        return bd.doubleValue();
+    }
+
 }
