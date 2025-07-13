@@ -2,12 +2,12 @@
 
 **Tested for**:
 - Java 17+ ([Get Adoptium](https://adoptium.net/))
-- Minecraft 1.20.* - 1.21
+- Minecraft 1.20.* - 1.21.4
 
 **Install**:
 - Download ([Releases](https://github.com/Dimoka113/CreateBorder/releases/latest)) plugin.
 - Install Your server ([Paper](https://papermc.io/)) (Or any fork such as ([Purpur](https://purpurmc.org/downloads))
 - Move the plugin to the "<code>plugins</code>" folder of your server.
 - Restart your server.
-- Edit config.yml in <code>plugins/CreateBorder</code> to your taste.
+- Edit <code>config.yml</code> in <code>plugins/CreateBorder</code> to your taste.
 - Enjoy!
